@@ -1,7 +1,7 @@
 language: node_js
 node_js:
     - '12'
-script: ci
+script: npm run ci
 deploy:
   provider: heroku
   app: mike4040-cover
