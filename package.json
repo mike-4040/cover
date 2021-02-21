@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "nyc": {
+    "all": true
+  },
   "scripts": {
     "start": "node app.js",
     "start-server": "npm start",
-    "test": "mocha",
+    "test": "nyc --reporter=html --reporter=text mocha",
     "ci": "start-server-and-test start-server http://localhost:3000 test"
   },
   "repository": {
