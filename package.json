@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha"
+    "start-server": "npm start",
+    "test": "mocha",
+    "ci": "start-server-and-test start-server http://localhost:3000 test"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "axios": "^0.21.1",
     "chai": "^4.3.0",
     "mocha": "^8.3.0",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "start-server-and-test": "^1.12.0"
   }
 }
