@@ -10,7 +10,8 @@
     "start": "node app.js",
     "start-server": "npm start",
     "test": "nyc --reporter=html --reporter=text mocha",
-    "ci": "start-server-and-test start-server http://localhost:3000 test"
+    "ci": "start-server-and-test start-server http://localhost:3000 test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "axios": "^0.21.1",
     "chai": "^4.3.0",
+    "coveralls": "^3.1.0",
     "mocha": "^8.3.0",
     "nyc": "^15.1.0",
     "start-server-and-test": "^1.12.0"
