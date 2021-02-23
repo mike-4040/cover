@@ -8,8 +8,9 @@
   },
   "scripts": {
     "start": "node app.js",
-    "start-server": "npm start",
-    "test": "nyc --reporter=html --reporter=text --no-clean mocha",
+    "start-server": "nyc --reporter=html --reporter=text --no-clean --all npm start",
+    "test": "mocha --recursive -p",
+    "test:dev": "mocha --recursiv",
     "ci": "start-server-and-test start-server http://localhost:3000 test",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
