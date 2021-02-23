@@ -8,6 +8,13 @@ describe('get books by author id', () => {
     expect(data).to.be.a('array');
     expect(data.length).equal(2);
   })
+
+  it('get only books by second author', async () => {
+    const { data } = await sdk.get_books_by_author(1);
+
+    expect(data).to.be.a('array');
+    expect(data.length).equal(2);
+  })
 });
 
 // describe('get all books', () => {
