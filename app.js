@@ -1,14 +1,11 @@
 const express = require('express');
 
 const controllers = require('./controllers/books');
-const _c = require('./controllers/data');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+app.get('/', (_req, res) => res.send('Hello World!'));
 
 app.get('/books', controllers.getAllBooks);
 app.get('/books/:author_id', controllers.getBooksByAuthor);

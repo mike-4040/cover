@@ -1,4 +1,4 @@
-const { authors, books } = require('./data');
+const { authors, books } = require('../data/data');
 
 exports.getAllBooks = (_req, res) => res.status(200).send(books);
 
