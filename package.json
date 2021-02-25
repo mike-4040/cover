@@ -4,12 +4,26 @@
   "description": "",
   "main": "app.js",
   "nyc": {
-    "all": true
+    "all": true,
+    "exclude": [
+        "localJunk/**",
+        "public/**",
+        "scripts/**",
+        "coverage/**",
+        "test/**",
+        "config/settings.js",
+        "ebCheck.js",
+        "newrelic.js",
+        "proxy_app.js"
+    ]
   },
   "scripts": {
     "start": "node app.js",
-    "start-server": "nyc --reporter=html --reporter=text npm start",
-    "test": "mocha --recursive -p --exit test/",
+    "start-server": "nyc --reporter=text-summary --reporter=html --reporter=text node app.js",
+    "start-test-server": "TZ=UTC TEST_SERVER=true nyc --reporter=text-summary --reporter=html node app.js",
+    "test:mk": "mocha --recursive -p --exit test/",
+    "test": "start-server-and-test start-test-server http://localhost:3000 _test",
+    "_test": "TZ=UTC mocha --recursive -p test/fvt --timeout 20000",
     "test:dev": "mocha --recursiv test/",
     "ci": "start-server-and-test start-server http://localhost:3000 test",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -34,6 +48,6 @@
     "coveralls": "^3.1.0",
     "mocha": "^8.3.0",
     "nyc": "^15.1.0",
-    "start-server-and-test": "^1.12.0"
+    "start-server-and-test": "^1.11.3"
   }
 }

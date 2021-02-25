@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const sdk = require('./sdk');
+const sdk = require('../sdk');
 
 describe('get books by author id', () => {
   it('get only books by author', async () => {
@@ -17,11 +17,11 @@ describe('get books by author id', () => {
   })
 });
 
-// describe('get all books', () => {
-//   it('get a list of all books', async () => {
-//     const { data } = await sdk.get_all_books();
+describe('get all books', () => {
+  it('get a list of all books', async () => {
+    const { data } = await sdk.get_all_books();
 
-//     expect(data).to.be.a('array');
-//     expect(data.length).equal(4);
-//   })
-// });
+    expect(data).to.be.a('array');
+    expect(data.length).equal(4);
+  })
+});
