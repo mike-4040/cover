@@ -19,13 +19,10 @@
   },
   "scripts": {
     "start": "node app.js",
-    "start-server": "nyc --reporter=text-summary --reporter=html --reporter=text node app.js",
-    "start-test-server": "TZ=UTC TEST_SERVER=true nyc --reporter=text-summary --reporter=html node app.js",
-    "test:mk": "mocha --recursive -p --exit test/",
-    "test": "start-server-and-test start-test-server http://localhost:3000 _test",
-    "_test": "TZ=UTC mocha --recursive -p test/fvt --timeout 20000",
-    "test:dev": "mocha --recursiv test/",
-    "ci": "start-server-and-test start-server http://localhost:3000 test",
+    "start-server": "nyc --reporter=text node app.js",
+    "test": "mocha --recursive -p test/fvt",
+    "test:dev": "mocha --recursive test/fvt",
+    "ci": "start-server-and-test start-server 3000 test",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
